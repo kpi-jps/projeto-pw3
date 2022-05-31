@@ -35,8 +35,6 @@ public class UserController extends Controller {
 
     @RequestMapping(value = "/save_user", method = RequestMethod.POST)
     public ResponseEntity<Object> saveUser(@RequestBody User user, HttpServletRequest request) {
-        if(!authenticationService.isAuthenticate(request.getSession()))
-            return new ResponseEntity<>("Unauthorized access!", HttpStatus.UNAUTHORIZED);
         if(service.isUserNameAlreadyRegistred(user.getEmail()))
             return new ResponseEntity<>("User already registred!", HttpStatus.OK);
         user.setPass(BCrypt.hashpw(user.getPass(), BCrypt.gensalt()));
