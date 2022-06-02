@@ -6,7 +6,7 @@ window.addEventListener('load', () => {
         const inputs = document.querySelectorAll('form input');
         return {
             email: inputs[0].value,
-            pass: inputs[1].value,
+            pass: inputs[1].value
         }
     }
     
@@ -14,18 +14,16 @@ window.addEventListener('load', () => {
         e.preventDefault();
         console.log(getFormData());
         doPost(baseURL + 'login', getFormData()).then((response) => {
-            console.log(response.status);
+            if(response.status == 401) alert('Acesso negado!');
+
+            if(response.ok) window.location.assign('./app.html');
         });
 
     });
-    /*
-    doGet(baseURL + 'is_authenticate', (response, status) => {
-        console.log(response);
-    })
-    */
+   
     doGet(baseURL + 'is_authenticate').then((response) => {
         console.log(response.status) 
-        if(response.status == 200) window.location.href = "./app.html";
+        if(response.ok) window.location.assign('./app.html');
     });
     
 })
