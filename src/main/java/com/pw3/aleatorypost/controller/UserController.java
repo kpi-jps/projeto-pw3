@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
+
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
@@ -18,13 +20,30 @@ public class UserController extends Controller {
     @Autowired
     private UserService service;
 
+    @RequestMapping(value = "/is_authenticate", method = RequestMethod.GET)
+    public ResponseEntity<Object> isUserAuthenticate(HttpServletRequest request) {
+        if(!authenticationService.isAuthenticate(request.getSession()))
+            return new ResponseEntity<>("Unauthorized access!", HttpStatus.UNAUTHORIZED);
+        return new ResponseEntity<>("User already authenticated!", HttpStatus.OK);    
+    }
+
+    @RequestMapping(value = "/get_user", method = RequestMethod.GET)
+    public ResponseEntity<Object> getUser(HttpServletRequest request) {
+        if(!authenticationService.isAuthenticate(request.getSession()) &&
+            request.getAttribute("id") != null)
+            return new ResponseEntity<>("Unauthorized access!", HttpStatus.UNAUTHORIZED);
+        Long userId = (Long)request.getAttribute("id");
+        User user = service.findById(userId);
+        return new ResponseEntity<>(user, HttpStatus.OK);
+    }
+
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ResponseEntity<Object> doLogin(@RequestBody User user, HttpServletRequest request) {
         if(authenticationService.isAuthenticate(request.getSession()))
             return new ResponseEntity<>("User already authenticated!", HttpStatus.OK);
         if(authenticationService.authenticate(user.getEmail(), user.getPass(), request.getSession()))
             return new ResponseEntity<>("User authenticated!", HttpStatus.OK);
-        return new ResponseEntity<>("Unauthorized access!", HttpStatus.UNAUTHORIZED);
+        return new ResponseEntity<>("Unauthorized access!", HttpStatus.UNAUTHORIZED);    
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)

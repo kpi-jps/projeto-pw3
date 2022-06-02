@@ -5,9 +5,6 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 import javax.persistence.*;
 
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat.ISO;
-
 @Entity
 @Table(name = "post")
 public class Post implements Serializable{
@@ -19,14 +16,13 @@ public class Post implements Serializable{
     @Enumerated(EnumType.STRING)
     private Category category;
 
-    @Column(name = "tite", nullable = false)
+    @Column(name = "title", nullable = false)
     private String title;
     
     @Column(name = "content", nullable = false, length = 5000)
     private String content;
 
-    @DateTimeFormat(iso = ISO.DATE_TIME)
-    @Column(name = "datetime", nullable = false, columnDefinition = "DATETIME")
+    @Column(name = "datetime", nullable = false)
     private LocalDateTime datetime;
 
     @OneToOne

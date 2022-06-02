@@ -5,8 +5,6 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 import javax.persistence.*;
 
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 @Entity
 @Table(name = "comment")
@@ -18,8 +16,7 @@ public class Comment implements Serializable{
     @Column(name = "comment", nullable = false, length = 5000)
     private String comment;
     
-    @DateTimeFormat(iso = ISO.DATE_TIME)
-    @Column(name = "datetime", nullable = false, columnDefinition = "DATETIME")
+    @Column(name = "datetime", nullable = false)
     private LocalDateTime datetime;
 
     @OneToOne
