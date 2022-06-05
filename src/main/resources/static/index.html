@@ -11,19 +11,37 @@
     <title>Document</title>
 </head>
 <body>
-    <main>
-        <form>
-            <label>Email:
-                <input type="email" name="email" required>
-            </label>
-            <label>
-                Senha:
-                <input type="password" name="pass" required>
-            </label>
-            <button>Login</button>
-            <div>Não tem uma conta? <a href="./register.html">Cadastre-se</a></div>
-            
-        </form>
-    </main>
+    <main class="container" >
+        <a class="links" id="register"></a>
+        <a class="links" id="index"></a>
+        <a class="links" id="app"></a>
+        
+        <div class="content">      
+            <!--FORMULÁRIO DE LOGIN-->
+            <div id="login">
+                <form> 
+                    <h1>Aleatory Post</h1> 
+                    <p> 
+                        <label for="email">Seu e-mail</label>
+                        <input id="email" name="email" required="required" type="text" placeholder="ex. contato@email.com"/>
+                    </p>
+                    
+                    <p> 
+                        <label for="password">Sua senha</label>
+                        <input id="password" name="pass" required="required" type="password" placeholder="ex. 1234" /> 
+                    </p>
+                    
+                    <p>
+                        <input type="submit" value="Logar"/> 
+                    </p>
+                    
+                    <p class="link">
+                        Ainda não tem conta?
+                        <a href="./register.html">Cadastre-se</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </main> 
 </body>
 </html>

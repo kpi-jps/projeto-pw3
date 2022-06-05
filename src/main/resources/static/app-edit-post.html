@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/fetch.js"></script>
+    <script src="js/edit-post.js"></script>
+    <title>AleatoryPosts</title>
+</head>
+<body>
+    <header><h1>Aleatory Posts</h1></header>
+    <div><a href="./app.html"> Voltar </a></div>
+    <form>
+        <h3>Editando post</h3>
+        <label>
+            Categoria:
+            <select name="category">
+                <option value="SPORTS">Esporte</option>
+                <option value="GENERAL_CULTURE">Cultura Geral</option>
+                <option value="POLITICS">Política</option>
+                <option value="MUSIC">Músicas</option>
+                <option value="VIDEO_GAMES">Video game</option>
+                <option value="RELIGION">Relegião</option>
+                <option value="SCIENCE">Ciência</option>
+            </select>
+        </label>
+        <input type="hidden" name="id" value="">
+        <label>
+            Título:
+            <input type="text"  name="title" required>
+        </label>
+        <label>
+            Conteúdo:
+            <textarea name="content" cols="30" rows="10" required></textarea>
+        </label>
+        <input type="hidden" name="datetime" value="">
+        <input type="hidden" name="user_id" value="">
+        <button type="submit">Editar</button>
+    </form>
+</body>
+</html>

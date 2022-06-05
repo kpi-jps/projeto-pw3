@@ -1,12 +1,7 @@
 const doGet = async (url) => {
     const response = await fetch(url, {
       method: 'GET',
-      //: 'no-cors',
-      headers: {
-        'Content-Type': 'application/json'
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-      }
-
+      credentials: 'same-origin'
     });
     return response;
   }
@@ -14,7 +9,7 @@ const doGet = async (url) => {
   const doPost = async (url, data) => {
     const response = await fetch(url, {
       method: 'POST',
-      //mode: 'no-cors',
+      credentials: 'same-origin',
       body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json'
@@ -27,8 +22,7 @@ const doGet = async (url) => {
   const doPut = async (url, data) => {
     const response = await fetch(url, {
       method: 'PUT',
-      credentials: 'include',
-      mode: 'cors',
+
       body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json'
@@ -41,8 +35,6 @@ const doGet = async (url) => {
   const doDelete = async (url) => {
     const response = await fetch(url, {
       method: 'DELETE',
-      mode: 'cors',
-      credentials: 'include'
     });
     return response;
   }

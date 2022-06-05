@@ -11,27 +11,31 @@ import javax.persistence.*;
 public class Comment implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id")
+    private Integer id;
     
     @Column(name = "comment", nullable = false, length = 5000)
     private String comment;
     
-    @Column(name = "datetime", nullable = false)
-    private LocalDateTime datetime;
+    @Column(name = "date", nullable = false)
+    private LocalDateTime date;
 
     @OneToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
-
+    
     @OneToOne
-    @JoinColumn(name = "post_id")
+    @JoinColumn(name = "post_id", referencedColumnName = "id")
     private Post post;
 
-    public Long getId() {
+    public Comment() {
+    }
+
+    public Integer getId() {
         return this.id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -39,7 +43,7 @@ public class Comment implements Serializable{
         return this.post;
     }
 
-    public void setId(Post post) {
+    public void setPost(Post post) {
         this.post = post;
     }
 
@@ -52,11 +56,11 @@ public class Comment implements Serializable{
     }
 
     public LocalDateTime getDate() {
-        return this.datetime;
+        return this.date;
     }
 
-    public void setDate(LocalDateTime datetime) {
-        this.datetime = datetime;
+    public void setDate(LocalDateTime date) {
+        this.date = date;
     }
 
     public User getUser() {
@@ -88,7 +92,7 @@ public class Comment implements Serializable{
         return "Comment{" +
                 "id=" + id +
                 ", comment='" + comment + '\'' +
-                ", datetime=" + datetime +
+                ", datetime=" + date +
                 ", user=" + user +
                 ", post=" + post +
                 '}';

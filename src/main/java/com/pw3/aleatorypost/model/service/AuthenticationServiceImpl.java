@@ -20,7 +20,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         if(session.getAttribute("id") != null &&
             session.getAttribute("username") != null && 
             session.getAttribute("password") != null) {
-                Long id = (Long) session.getAttribute("id");
+                Integer id = (Integer) session.getAttribute("id");
                 String username = (String) session.getAttribute("username");
                 String password = (String) session.getAttribute("password");
                 User user = userDAO.findById(id);

@@ -29,12 +29,12 @@ public class CommentServiceImpl implements CommentService{
     
     @Transactional(readOnly = false)
     @Override
-    public void remove(Long id) {
+    public void remove(Integer id) {
         commentDAO.delete(id);  
     }
 
     @Override
-    public Comment searchById(Long id) {
+    public Comment searchById(Integer id) {
         return commentDAO.findById(id);
     }
 
@@ -44,7 +44,7 @@ public class CommentServiceImpl implements CommentService{
     }
 
     @Override
-    public List<Comment> searchByPostId(Long postId) {
+    public List<Comment> searchByPostId(Integer postId) {
         return commentDAO.findByPostId(postId);
     }
 

@@ -30,17 +30,17 @@ public class UserController extends Controller {
     @RequestMapping(value = "/get_user", method = RequestMethod.GET)
     public ResponseEntity<Object> getUser(HttpServletRequest request) {
         if(!authenticationService.isAuthenticate(request.getSession()) &&
-            request.getAttribute("id") != null)
+            request.getSession().getAttribute("id") == null) 
             return new ResponseEntity<>("Unauthorized access!", HttpStatus.UNAUTHORIZED);
-        Long userId = (Long)request.getAttribute("id");
-        User user = service.findById(userId);
+        Integer id = (Integer) request.getSession().getAttribute("id");
+        User user = service.findById(id);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ResponseEntity<Object> doLogin(@RequestBody User user, HttpServletRequest request) {
         if(authenticationService.isAuthenticate(request.getSession()))
-            return new ResponseEntity<>("User already authenticated!", HttpStatus.OK);
+            return new ResponseEntity<>("User already authenticated!", HttpStatus.CONFLICT);
         if(authenticationService.authenticate(user.getEmail(), user.getPass(), request.getSession()))
             return new ResponseEntity<>("User authenticated!", HttpStatus.OK);
         return new ResponseEntity<>("Unauthorized access!", HttpStatus.UNAUTHORIZED);    
@@ -63,7 +63,7 @@ public class UserController extends Controller {
     }
 
     @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Object> getUserById(@PathVariable("id") Long id, HttpServletRequest request) {
+    public ResponseEntity<Object> getUserById(@PathVariable("id") Integer id, HttpServletRequest request) {
         if(!authenticationService.isAuthenticate(request.getSession()))
             return new ResponseEntity<>("Unauthorized access!", HttpStatus.UNAUTHORIZED);
         User user = service.findById(id);

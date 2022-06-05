@@ -6,11 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/fetch.js"></script>
     <script src="js/app.js"></script>
-    <title>Document</title>
+    <title>AleatoryPosts</title>
 </head>
 <body>
-    <header><h1>Aleatory Posts</h1></header>
-    <h1>App</h1>
-    <ul></ul>
+    <div id="loading"></div>
+    <main>
+        <header><h1>Aleatory Posts</h1></header>
+        <h4>Bem vindo <span id="user"></span></h4>
+        <nav>
+            <ul>
+                <li> <a href="" id="create-post">Cadastrar post</a> </li>
+                <li> <a href="" id="list-my-posts">Listar meus posts</a> </li>
+                <li> <a href="" id="list-posts">Listar todos os posts</a> </li>
+                <li> <a href="" id="logout">Sair</a> </li>
+            </ul>
+        </nav>
+        <div id="content">
+            <h3 id="post-list-title">Meus posts</h3>
+            <label>
+                Categoria:
+                <select name="category">
+                    <option value="SPORTS">Esporte</option>
+                    <option value="GENERAL_CULTURE">Cultura Geral</option>
+                    <option value="POLITICS">Política</option>
+                    <option value="MUSIC">Música</option>
+                    <option value="VIDEO_GAMES">Video game</option>
+                    <option value="RELIGION">Relegião</option>
+                    <option value="SCIENCE">Ciência</option>
+                </select>
+            </label>
+            <div id="posts"> </div>
+        </div>
+        <footer>AleatoryPosts</footer>
+    </main>
 </body>
 </html>

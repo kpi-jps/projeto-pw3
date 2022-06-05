@@ -40,7 +40,7 @@ public class PostController extends Controller{
     }
 
     @RequestMapping(value = "/post/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Object> getPost(@PathVariable("id") Long id, HttpServletRequest request) {
+    public ResponseEntity<Object> getPost(@PathVariable("id") Integer id, HttpServletRequest request) {
         if(!authenticationService.isAuthenticate(request.getSession()))
             return new ResponseEntity<>("Unauthorized access!", HttpStatus.UNAUTHORIZED);
         Post post = service.searchById(id);
@@ -56,18 +56,26 @@ public class PostController extends Controller{
     }
 
     @RequestMapping(value = "/delete_post/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<Object> deletePost(@PathVariable("id") Long id, HttpServletRequest request) {
+    public ResponseEntity<Object> deletePost(@PathVariable("id") Integer id, HttpServletRequest request) {
         if(!authenticationService.isAuthenticate(request.getSession()))
             return new ResponseEntity<>("Unauthorized access!", HttpStatus.UNAUTHORIZED);
         service.remove(id);
         return new ResponseEntity<>("Post successifully removed!", HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/get_user_posts/{userId}/{category}", method = RequestMethod.DELETE)
-    public ResponseEntity<Object> getPostByUser(@PathVariable("userId") Long userId, @PathVariable("category") Category category, HttpServletRequest request) {
+    @RequestMapping(value = "/get_user_posts/{userId}/{category}", method = RequestMethod.GET)
+    public ResponseEntity<Object> getPostByUser(@PathVariable("userId") Integer userId, @PathVariable("category") Category category, HttpServletRequest request) {
         if(!authenticationService.isAuthenticate(request.getSession()))
             return new ResponseEntity<>("Unauthorized access!", HttpStatus.UNAUTHORIZED);
         List<Post> posts = service.searchByUserIdAndCategory(userId, category);
+        return new ResponseEntity<>(posts, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/get_posts_by_category/{category}", method = RequestMethod.GET)
+    public ResponseEntity<Object> getPostByCategory(@PathVariable("category") Category category, HttpServletRequest request) {
+        if(!authenticationService.isAuthenticate(request.getSession()))
+            return new ResponseEntity<>("Unauthorized access!", HttpStatus.UNAUTHORIZED);
+        List<Post> posts = service.searchByCategory(category);
         return new ResponseEntity<>(posts, HttpStatus.OK);
     }
 }

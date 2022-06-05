@@ -10,7 +10,7 @@ public interface UserService {
 
     void edit(User entity);
 
-    User findById(Long id);
+    User findById(Integer id);
 
     Optional<User> findByLogin(String login);
 

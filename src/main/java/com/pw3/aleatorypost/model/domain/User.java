@@ -2,29 +2,32 @@ package com.pw3.aleatorypost.model.domain;
 
 import java.io.Serializable;
 import java.util.Objects;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "user")
-public class User implements Serializable{
+public class User implements Serializable {
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(name = "name", nullable = false)
     private String name;
 
     @Column(name = "email", nullable = false, unique = true)
     private String email;
-    
+
     @Column(name = "pass", nullable = false)
     private String pass;
 
-    public void setId(Long id) {
+
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return this.id;
     }
 
@@ -71,10 +74,10 @@ public class User implements Serializable{
     @Override
     public String toString() {
         return "{" +
-            " id='" + getId() + "'" +
-            ", name='" + getName() + "'" +
-            ", email='" + getEmail() + "'" +
-            "}";
-    }    
+                " id='" + getId() + "'" +
+                ", name='" + getName() + "'" +
+                ", email='" + getEmail() + "'" +
+                "}";
+    }
 
 }

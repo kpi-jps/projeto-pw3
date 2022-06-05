@@ -11,11 +11,13 @@ public interface PostService {
 
     void edit(Post entity);
 
-    void remove(Long id);
+    void remove(Integer id);
 
-    Post searchById(Long id);
+    Post searchById(Integer id);
 
-    List<Post> searchByUserIdAndCategory(Long userId, Category category);
+    List<Post> searchByUserIdAndCategory(Integer userId, Category category);
+
+    List<Post> searchByCategory(Category category);
 
     List<Post> searchAll();
 }

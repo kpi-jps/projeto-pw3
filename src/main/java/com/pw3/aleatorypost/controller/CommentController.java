@@ -38,7 +38,7 @@ public class CommentController extends Controller{
     }
 
     @RequestMapping(value = "/comments/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Object> getPost(@PathVariable("id") Long id, HttpServletRequest request) {
+    public ResponseEntity<Object> getPost(@PathVariable("id") Integer id, HttpServletRequest request) {
         if(!authenticationService.isAuthenticate(request.getSession()))
             return new ResponseEntity<>("Unauthorized access!", HttpStatus.UNAUTHORIZED);
         Comment comment = service.searchById(id);
@@ -54,15 +54,15 @@ public class CommentController extends Controller{
     }
 
     @RequestMapping(value = "/delete_comment/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<Object> deletePost(@PathVariable("id") Long id, HttpServletRequest request) {
+    public ResponseEntity<Object> deletePost(@PathVariable("id") Integer id, HttpServletRequest request) {
         if(!authenticationService.isAuthenticate(request.getSession()))
             return new ResponseEntity<>("Unauthorized access!", HttpStatus.UNAUTHORIZED);
         service.remove(id);
         return new ResponseEntity<>("Comment successifully removed!", HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/get_post_comments/{postId}", method = RequestMethod.DELETE)
-    public ResponseEntity<Object> getPostByUser(@PathVariable("postId") Long postId, HttpServletRequest request) {
+    @RequestMapping(value = "/get_post_comments/{postId}", method = RequestMethod.GET)
+    public ResponseEntity<Object> getPostByUser(@PathVariable("postId") Integer postId, HttpServletRequest request) {
         if(!authenticationService.isAuthenticate(request.getSession()))
             return new ResponseEntity<>("Unauthorized access!", HttpStatus.UNAUTHORIZED);
         List<Comment> posts = service.searchByPostId(postId);

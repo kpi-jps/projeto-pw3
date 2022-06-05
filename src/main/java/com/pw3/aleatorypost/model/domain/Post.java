@@ -10,7 +10,8 @@ import javax.persistence.*;
 public class Post implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id")
+    private Integer id;
 
     @Column(name = "category", nullable = false)
     @Enumerated(EnumType.STRING)
@@ -22,18 +23,22 @@ public class Post implements Serializable{
     @Column(name = "content", nullable = false, length = 5000)
     private String content;
 
-    @Column(name = "datetime", nullable = false)
-    private LocalDateTime datetime;
-
+    @Column(name = "date", nullable = false)
+    private LocalDateTime date;
+    
     @OneToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
-    public Long getId() {
+
+    public Post() {
+    }
+
+    public Integer getId() {
         return this.id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -62,11 +67,11 @@ public class Post implements Serializable{
     }
 
     public LocalDateTime getDate() {
-        return this.datetime;
+        return this.date;
     }
 
     public void setDate(LocalDateTime datetime) {
-        this.datetime = datetime;
+        this.date = datetime;
     }
 
     public User getUser() {
@@ -76,7 +81,6 @@ public class Post implements Serializable{
     public void setUser(User user) {
         this.user = user;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -101,7 +105,7 @@ public class Post implements Serializable{
                 "id=" + id +
                 ", category=" + category +
                 ", content='" + content + '\'' +
-                ", datetime=" + datetime +
+                ", datetime=" + date +
                 ", user=" + user +
                 '}';
     }

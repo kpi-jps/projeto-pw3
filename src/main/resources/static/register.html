@@ -4,24 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <script src="js/fetch.js"></script>
     <script src="js/register.js"></script>
-    <title>Document</title>
+    <title>AleatoryPosts</title>
 </head>
 <body>
-    <form>
-        <h2>Registrar</h2>
-        <label>Nome:
-            <input type="text" name="name" required>
-        </label>
-        <label>Email:
-            <input type="email" name="email" required>
-        </label>
-        <label>
-            Senha:
-            <input type="password" name="pass" required>
-        </label>
-        <button>Registrar</button>
-    </form>   
+    <main class="container" >
+        <a class="links" id="paracadastro"></a>
+        <a class="links" id="paralogin"></a>
+        
+        <div class="content">     
+    
+            <!--FORMULÁRIO DE CADASTRO-->
+            <div id="cadastro">
+                <form> 
+                    <h1>Cadastro</h1> 
+                
+                    <p> 
+                        <label for="name">Seu nome</label>
+                        <input id="name" name="name" required="required" type="text" placeholder="nome" />
+                    </p>
+                
+                    <p> 
+                        <label for="email">Seu e-mail</label>
+                        <input id="email" name="email" required="required" type="email" placeholder="contato@email.com"/> 
+                    </p>
+                
+                    <p> 
+                        <label for="password">Sua senha</label>
+                        <input id="password" name="pass" required="required" type="password" placeholder="ex. 1234"/>
+                    </p>
+                
+                    <p> 
+                        <input type="submit" value="Cadastrar"/> 
+                    </p>
+                
+                    <p class="link">  
+                        Já tem conta?
+                        <a href="./index.html"> Ir para Login </a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </main>  
 </body>
 </html>

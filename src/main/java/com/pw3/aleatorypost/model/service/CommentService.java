@@ -10,12 +10,12 @@ public interface CommentService {
 
     void edit(Comment entity);
 
-    void remove(Long id);
+    void remove(Integer id);
 
-    Comment searchById(Long id);
+    Comment searchById(Integer id);
 
     List<Comment> searchAll();
 
-    List<Comment> searchByPostId(Long postId);
+    List<Comment> searchByPostId(Integer postId);
 }
  

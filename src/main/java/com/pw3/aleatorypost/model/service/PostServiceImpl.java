@@ -30,12 +30,12 @@ public class PostServiceImpl implements PostService{
     
     @Transactional(readOnly = false)
     @Override
-    public void remove(Long id) {
+    public void remove(Integer id) {
         postDAO.delete(id);  
     }
 
     @Override
-    public Post searchById(Long id) {
+    public Post searchById(Integer id) {
         return postDAO.findById(id);
     }
 
@@ -45,8 +45,13 @@ public class PostServiceImpl implements PostService{
     }
 
     @Override
-    public List<Post> searchByUserIdAndCategory(Long userId, Category category) {
+    public List<Post> searchByUserIdAndCategory(Integer userId, Category category) {
         return postDAO.findByUserIdAndCategory(userId, category);
+    }
+
+    @Override
+    public List<Post> searchByCategory(Category category) {
+        return postDAO.findByCategory(category);
     }
 
 }

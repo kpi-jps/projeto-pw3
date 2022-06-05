@@ -16,14 +16,14 @@ window.addEventListener('load', () => {
         doPost(baseURL + 'login', getFormData()).then((response) => {
             if(response.status == 401) alert('Acesso negado!');
 
-            if(response.ok) window.location.assign('./app.html');
+            if(response.ok) window.location.href = './app.html';
         });
 
     });
    
-    doGet(baseURL + 'is_authenticate').then((response) => {
+    doGet(baseURL + 'is_authenticate').then(response => {
         console.log(response.status) 
-        if(response.ok) window.location.assign('./app.html');
+        if(response.ok) window.location.href = './app.html';
     });
     
 })
