@@ -4,25 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styleApp.css">
     <script src="js/fetch.js"></script>
     <script src="js/app.js"></script>
     <title>AleatoryPosts</title>
 </head>
 <body>
-    <div id="loading"></div>
-    <main>
-        <header><h1>Aleatory Posts</h1></header>
-        <h4>Bem vindo <span id="user"></span></h4>
-        <nav>
-            <ul>
-                <li> <a href="" id="create-post">Cadastrar post</a> </li>
-                <li> <a href="" id="list-my-posts">Listar meus posts</a> </li>
-                <li> <a href="" id="list-posts">Listar todos os posts</a> </li>
-                <li> <a href="" id="logout">Sair</a> </li>
-            </ul>
-        </nav>
+<div id="loading"></div>
+<main>
+    <header><h1>Aleatory Posts</h1></header>
+    <h4>Bem-vindo(a), <span id="user"></span>!</h4>
+    </br>
+    <nav id="navbar">
+        <ul>
+            <li> <a href="" id="create-post">Cadastrar Post</a> </li>
+            <li> <a href="" id="list-my-posts">Listar Meus Posts</a> </li>
+            <li> <a href="" id="list-posts">Listar Todos os Posts</a> </li>
+            <li> <a href="" id="logout">Sair</a> </li>
+        </ul>
+    </nav>
+    <section class="postList" id="postList">
         <div id="content">
             <h3 id="post-list-title">Meus posts</h3>
+            </br>
             <label>
                 Categoria:
                 <select name="category">
@@ -37,7 +41,12 @@
             </label>
             <div id="posts"> </div>
         </div>
-        <footer>AleatoryPosts</footer>
-    </main>
+    </section>
+    <section class="footer">
+        <div class="container footer-content">
+            <p>&copy; Trabalho Final da Disciplina de Programação para Web III</p>
+        </div>
+    </section>
+</main>
 </body>
 </html>

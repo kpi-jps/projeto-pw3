@@ -119,7 +119,7 @@ window.addEventListener('load', () => {
                 p =  document.createElement('p');
                 h5 = document.createElement('h4');
                 p.innerText = comment.comment;
-                h5.innerText = comment.id + 'Autor: ' + comment.user.name +
+                h5.innerText = 'Autor: ' + comment.user.name +
                     ' - postado em: ' + returnTimeStamp(comment.date);
                 div.append(h5);
                 div.append(p);
