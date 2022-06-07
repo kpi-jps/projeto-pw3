@@ -4,42 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styleApp.css">
     <script src="js/fetch.js"></script>
     <script src="js/app-post.js"></script>
     <title>AleatoryPosts</title>
 </head>
 <body>
-    <div id="loading"></div>
-    <main>
-        <header><h1>Aleatory Posts</h1></header>
-        <div id="content">
-            <div><a href="./app.html">Voltar</a></div>
-            <div id="edit"></div>
-            <div id="del"></div>
-            <div id="post-container">
-                <h2 id="post-title"></h2>
-                <h4 id="post-category"></h4>
-                <h4 id="post-info"></h4>
-                <div id="post-content"> </div>
-            </div>
-            <div>
-                <form>
-                    <label>
-                        Comentar:
-                        <textarea name="comment"></textarea>
-                    </label>
-                    <button type="submit">Salvar</button>
-                </form>
-            </div>
-            <div id="comments">
-                <!--
-                    Charles a estrutura aqui será a seguinte, o javascript irá
-                    inserir uma div que irá conter um elemento h2 com as informações sobre o 
-                    comentário e um elemento p contendo o comentário.
-                -->
-            </div>  
+<div id="loading"></div>
+<main>
+    <header><h1>Aleatory Posts</h1></header>
+    <div id="content">
+        <nav id="navbar">
+            <ul>
+                <li> <a href="./app.html">Voltar</a> </li>
+            </ul>
+        </nav>
+        <div id="edit"></div>
+        <div id="del"></div>
+        <div id="post-container">
+            <h2 id="post-title"></h2>
+            <h4 id="post-category"></h4>
+            <h3 id="post-info"></h3>
+            <div id="post-content"> </div>
         </div>
-        <footer>AleatoryPosts</footer>
-    </main>    
+        <div>
+            <form>
+                <label>Comentar:</label></br>
+                <textarea name="comment"></textarea>
+                <button type="submit" class="btn btn-submit">Salvar</button>
+            </form>
+        </div>
+        <div id="comments"></div>
+    </div>
+
+    <section class="footer">
+        <div class="container footer-content">
+            <p>&copy; Trabalho Final da Disciplina de Programação para Web III</p>
+        </div>
+    </section>
+</main>
 </body>
 </html>
