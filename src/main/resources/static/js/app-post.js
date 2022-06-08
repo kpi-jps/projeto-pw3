@@ -112,7 +112,7 @@ window.addEventListener('load', () => {
         commentsContainer.innerHTML = '';
         //console.log(arrayOfComments.length)
         if(arrayOfComments.length != 0) { 
-            let div, p, h5;
+            let div, p, h5, del;
             for (comment of arrayOfComments) {
                 //console.log(comment)
                 div = document.createElement('div');
@@ -124,7 +124,7 @@ window.addEventListener('load', () => {
                 div.append(h5);
                 div.append(p);
                 if(comment.user.id == userId) {
-                    let del = document.createElement('a');
+                    del = document.createElement('a');
                     del.setAttribute('href', '#');
                     del.innerText = 'Deletar comentario';
                     del.addEventListener('click', e  => {

@@ -77,8 +77,6 @@ h4{
   position: relative;
 }
 
-/*Menu Navegacao*/
-
 #navbar{
   background-color: rgb(61, 157, 179);
 }
@@ -111,8 +109,8 @@ h4{
   background-color: rgb(6, 106, 117);
 }
 
-#back{
-  background-color: rgb(97, 173, 175);
+#edit{
+  background-color: rgb(6, 106, 117);
   max-width: 800px;
   list-style: none;
   padding: 0;
@@ -125,22 +123,13 @@ h4{
   float: right;
 }
 
-#edit{
-  background-color: rgb(97, 173, 175);
-  max-width: 800px;
-  list-style: none;
-  padding: 0;
-  display: inline;
-  padding: 20px;
-  display: inline-block;
-  text-decoration: none;
-  transition: background .4s;
+#edit a{
+  color: #FFF;
   font-weight: bold;
-  float: right;
 }
 
 #del{
-  background-color: rgb(97, 173, 175);
+  background-color: rgb(6, 106, 117);
   max-width: 800px;
   list-style: none;
   padding: 0;
@@ -152,6 +141,12 @@ h4{
   font-weight: bold;
   float: right;
 }
+
+#del a{
+  color: #FFF;
+  font-weight: bold;
+}
+
 
 .postList {
   width: 100%;
@@ -181,7 +176,7 @@ label {
 }
 
 select {
-  width: 150px;
+  width: 170px;
   padding: 8px;
   border: 0 !important;
   background-color: lightblue;
@@ -210,16 +205,17 @@ textarea {
   margin-left: 40px;
 }
 
-input[type=text] {
-  width: 150px;
-  height: 15px;
-  padding: 16px;
-  max-width: 100%;
-  line-height: 1.5;
+.btn-info {
+  padding: 15px 15px;
+  font-size: 16px;
+  color: #FFF;
+  background-color: rgb(61, 157, 179);
+  border: none;
   border-radius: 5px;
-  border: 1px solid #ccc;
-  box-shadow: 1px 1px 1px #999;
-  margin-left: 40px;
+  margin-top: 30px;
+  cursor: pointer;
+  margin-right: 800px;
+  float: right;
 }
 
 .btn-submit {
